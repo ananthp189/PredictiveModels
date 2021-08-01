@@ -100,3 +100,9 @@ qqline(resid(mmod))
 plot(fitted(mmod), resid(mmod), xlab="Fitted", ylab="Residuals")
 abline(0,0)
 
+#Heirarchial modelling
+#Fitting the model in R is as simple as adding these terms as fixed effects:
+  gpa_multil<-lmer(gpa ~ occasion + sex + highgpa + (1+occasion|student), data=gpa)
+summary(gpa_multil)
+round(confint(gpa_multil, oldNames=FALSE),3)
+
